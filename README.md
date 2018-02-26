@@ -1,2 +1,2 @@
-# lab-4
-private lab 4
+# Lab exercise 4
+Author: `<Place your name here>`

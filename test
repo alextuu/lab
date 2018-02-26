@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ ! -f catch-main.o ]; then
+    g++ -std=c++11 -c catch-main.cpp
+fi
+
+if [ $1 == "[factorial]" ] || [ $1 == "[nameExists]" ] || [ $1 == "[findContactFile]" ]; then
+	g++ -std=c++11 catch-main.o functions.cpp unittest2.cpp -o unittest2 
+	if [ $? -eq 0 ]; then
+    echo running test 2 in
+    pwd
+    ./unittest2 $@
+	fi
+else
+	g++ -std=c++11 catch-main.o unittest.cpp -o unittest 
+	if [ $? -eq 0 ]; then
+    echo running test in
+    pwd
+    ./unittest $@
+	fi
+fi
